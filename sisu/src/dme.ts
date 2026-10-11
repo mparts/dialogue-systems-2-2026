@@ -83,6 +83,7 @@ export const dme = setup({
         SelectICM: {
           always: [
             isuTransition("SelectMove", "select_icm_sem_neg"),
+            isuTransition("SelectMove", "select_icm_con_neg"),
             { target: "SelectMove" },
           ],
         },
