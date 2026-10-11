@@ -271,7 +271,21 @@ export const rules: Rules = {
       });
     }
   },
-  
+  select_icm_con_neg: ({ is }) => {
+    const lu = is.shared.lu;
+    if (
+      lu &&
+      lu.speaker === "usr" &&
+      lu.moves.some((m) => m.type === "noinput") &&
+      is.next_moves.length === 0 &&
+      is.private.agenda.length === 0
+    ) {
+      return () => ({
+        ...is,
+        next_moves: [...is.next_moves, { type: "icm:con*neg", content: null }],
+      });
+    }
+  },
   /** rule 2.13 */
   select_ask: ({ is }) => {
     let newIS = is;
