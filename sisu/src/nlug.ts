@@ -57,8 +57,9 @@ const nluMapping: NLUMapping = {
   ],
 };
 const nlgMapping: NLGMapping = [
-  [{ type: "ask", content: WHQ("booking_course") }, "Which course?"],
+  [{ type: "icm:sem*neg", content: null }, "Sorry, I don't understand."],
   [{ type: "ask", content: WHQ("booking_day") }, "Which day?"],
+  [{ type: "ask", content: WHQ("booking_course") }, "Which course?"],
   [{ type: "greet", content: null }, "Hello! You can ask me anything!"],
   [
     {
@@ -81,6 +82,12 @@ const nlgMapping: NLGMapping = [
     },
     "The lecture is in G212.",
   ],
+  [
+    { 
+      type: "answer", 
+      content: { predicate: "booking_room", argument: "J440" } 
+    },
+    "The lecture is in J440."],
 ];
 
 export function nlg(moves: Move[]): string {

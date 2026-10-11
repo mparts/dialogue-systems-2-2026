@@ -23,7 +23,9 @@ export const initialIS = (): InformationState => {
     Tuesday: "day",
   };
   const rooms: { [day: string]: string } = {
-    Friday: "G212", Thursday: "J440", Tuesday: "J440",
+    Friday: "G212",
+    Thursday: "J440",
+    Tuesday: "J440",
   };
   return {
     domain: {
